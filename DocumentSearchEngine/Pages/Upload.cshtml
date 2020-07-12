@@ -1,0 +1,29 @@
+﻿@page
+@model DocumentSearchEngine.Pages.UploadModel
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<h1>Add new document to Data Set</h1>
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-success" role="alert">
+        @Model.Message
+    </div>
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Document Title</label>
+        <input asp-for="UploadFileModel.Title" class="form-control" placeholder="Document Title">
+        <small  class="form-text text-danger"></small>
+    </div>
+    <div class="form-group">
+        <label>Document File</label>
+        <input asp-for="UploadFileModel.File" class="form-control">
+        
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Save Document</button>
+    <br/>
+    <div asp-validation-summary="All" class="text-danger"></div>
+</form>
